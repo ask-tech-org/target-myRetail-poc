@@ -28,7 +28,7 @@ The above tech stacks are being identified based on the following:
 
 ## Application Informations
 
-There are total applications:
+There are total two applications:
 
     1.  Oauth2.0 Authorization Server        
         * This application provides oauth access token for client credential and userInfo for authenticated users.

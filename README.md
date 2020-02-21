@@ -30,8 +30,7 @@ The above tech stacks are being identified based on the following:
 
 There are total applications:
 
-    1.  Oauth2.0 Authorization Server
-        
+    1.  Oauth2.0 Authorization Server        
         * This application provides oauth access token for client credential and userInfo for authenticated users.
             * Aavailable Endpoints:
                 1. Access token: /oauth/token : eg. http://localhost:8080/oauth/token

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.myretail.products.data.model.PriceDocument;
 
 @Repository
-public interface PriceDocumentRepositories extends MongoRepository<PriceDocument, String>{
+public interface PriceDocumentRepositories extends MongoRepository<PriceDocument, String> {
 
     PriceDocument findByProductId(String productId);
 

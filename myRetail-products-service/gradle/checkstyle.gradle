@@ -1,0 +1,17 @@
+
+apply plugin: 'checkstyle'
+
+checkstyle {
+    toolVersion = '8.10'
+    configFile = file("${rootProject.projectDir}/config/checkstyle/quantum-checkstyle.xml")
+    ignoreFailures = false
+    showViolations = true
+}
+
+checkstyleMain {
+    source = 'src/main/java'
+}
+
+checkstyleTest {
+    source = 'src/test/groovy'
+}

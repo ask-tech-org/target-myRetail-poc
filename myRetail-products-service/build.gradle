@@ -11,10 +11,9 @@ plugins {
     id 'eclipse'
 }
 
-//haven't used any static code analysis tools like checkstyle for this work due to time limitation
-//TODO need to revisit to add checkstyle
 apply from: 'gradle/codenarc.gradle'
 apply from: 'gradle/jacoco.gradle'
+apply from: 'gradle/checkstyle.gradle'
 
 group = 'com.myretail.products'
 version = '0.0.1-SNAPSHOT'

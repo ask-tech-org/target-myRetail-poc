@@ -12,7 +12,7 @@ import com.myretail.products.repositories.PriceDocumentRepositories;
 import com.myretail.products.services.exception.InternalServiceException;
 
 @Service
-public class DefaultProductPriceService implements ProductPriceService{
+public class DefaultProductPriceService implements ProductPriceService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultProductPriceService.class);
     
@@ -30,7 +30,7 @@ public class DefaultProductPriceService implements ProductPriceService{
                     .value(priceDocument.getValue())
                     .build();
             LOGGER.info("retrieved price information {}", price);
-        }catch (Exception e) {
+        } catch (Exception e) {
             //similar to ProductInformationService, ignore throwing any exception 
             //assuming user will satisfy with overall partial product information.
             //however it all depends on the business requirement
@@ -64,7 +64,7 @@ public class DefaultProductPriceService implements ProductPriceService{
                             .build())
                     .id(savePriceDocument.getProductId())
                     .build();
-        }catch(Exception e) {
+        } catch(Exception e) {
             String message = "error updating price information";
             LOGGER.error(message, e);
             throw new InternalServiceException(message, e);

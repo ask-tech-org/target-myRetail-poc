@@ -46,7 +46,7 @@ There are total applications:
 1. Get code checked out from git at command line
 2. Navigate to appropiate application (myRetail-authorization-server or myRetail-products-service)folder.
 3. Run Gradle clean Build command in cmd
-4  Finally Run Gradle bootRun command in cmd and wait for the application to start.
+4.  Finally Run Gradle bootRun command in cmd and wait for the application to start.
 5. Once the application starts, Please use API testing application like POSTMAN to call authorization-server to get the access token using following:
      * ![alt ETDA](./docs/OauthAccessTokenRequest.PNG)
      

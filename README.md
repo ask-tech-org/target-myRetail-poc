@@ -10,7 +10,9 @@ This proof fo concept(POC) is being done based on the following requirements:
 *	Reads pricing information from a NoSQL data store and combines it with the product id and name from the HTTP request into a single response.  
 *	BONUS: Accepts an HTTP PUT request at the same path (/products/{id}), containing a JSON request body similar to the GET response, and updates the product’s price in the data store.  
 
-# Tech Stacks:
+# Getting Started
+
+## Tech Stacks:
     * Spring boot 2.2.4.RELEASE
         * webflux
     * Embeded MongoDB
@@ -24,8 +26,26 @@ The above tech stacks are being identified based on the following:
     * Scalability
     * Maintainability
 
-# Getting Started
+## Usages
 
+There are total applications:
+
+    1.  Oauth2.0 Authorization Server
+        
+        * This application provides oauth access token for client credential and userInfo for authenticated users.
+
+    2.  Products-Service
+                
+        * This application provides Product Api for myRetails company.
+        
+            * Aavailable Endpoints:
+                1.  GET request: /api/v1/products/{id}
+                2.  PUT request: /api/v1/products/{id}
+                    
+                    *  RequestBody: {"value": 124.23,"currency_code": "USD"}
+                    
+1. Get code checked out from git at command line
+2. Na     
 ## Eclipse
 
 1. Get code checked out from git at command line
@@ -52,8 +72,5 @@ The above tech stacks are being identified based on the following:
 Gradle is required to build our application. If you are using the eclipse gradle plugin make the following configuration changes:
 * Preferences -> Gradle -> set Specific Gradle Version to match the same version as your command line gradle (gradle --version)
 * Preferences -> Gradle - set Gradle User Home 
-
-## Add Folders to Build Path (Eclipse)
-
 
 

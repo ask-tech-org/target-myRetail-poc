@@ -17,7 +17,12 @@ This proof fo concept(POC) is being done based on the following requirements:
         * mongodb-reactive
     * Oauth2.0 - Client Credential 
     * Spock
-    
+
+The above tech stacks are being identified based on the following:
+    * Reliability
+    * Scalability
+    * Maintainability
+
 # Getting Started
 
 ### Reference Documentation

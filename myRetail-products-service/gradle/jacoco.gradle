@@ -1,44 +1,63 @@
-
+//https://docs.gradle.org/current/userguide/jacoco_plugin.html
 apply plugin: "jacoco"
 
 jacoco {
-    toolVersion = "0.8.1"
+	toolVersion = "0.8.5"
 }
 
+def excludesList = [
+	'com/myretail/products/ProductsServiceApplication.class',
+	'com/myretail/products/configurations/**',
+	'com/myretail/products/domain/model/**',
+	'com/myretail/products/data/model/**'
+	]
+
 //ignore reporting main and configuration classes for POC
-//since these classes don't have any business process implementation 
+//since these classes don't have any business process implementation
 //TODO need to revisit in future
 jacocoTestReport {
-    group = "Reporting"
-    description = "Generate Jacoco coverage reports after running tests."
-    reports {
-        html.enabled true
-        csv.enabled false
-        xml.enabled true
-    }
+	group = "Reporting"
+	description = "Generate Jacoco coverage reports after running tests."
+	reports {
+		html.enabled true
+		csv.enabled false
+		xml.enabled true
+	}
+	afterEvaluate {
+		classDirectories = files(classDirectories.files.collect {
+			fileTree(dir: it, excludes: excludesList)
+		})
+	}
 }
-//                'com/myretail/products/ProductsServiceApplication.class',
- //               'com/myretail/products/configurations/*.class',
+
 jacocoTestCoverageVerification {
-    violationRules {
-        failOnViolation = false
-        // total line coverage
-        rule {
-            limit {
-                counter = 'LINE'
-                minimum = 0.50
-            }
-        }
-        // total branch coverage
-        rule {
-            limit {
-                counter = 'BRANCH'
-                minimum = 0.8
-            }
-        }
-     }
+	
+	afterEvaluate {
+		classDirectories = files(classDirectories.files.collect {
+			fileTree(dir: it, excludes: excludesList)
+		})
+	}
+	
+	violationRules {
+		failOnViolation = false
+		// total line coverage
+		rule {
+			limit {
+				counter = 'LINE'
+				minimum = 0.50
+			}
+		}
+		// total branch coverage
+		   rule {
+			
+			limit {
+				counter = 'BRANCH'
+				minimum = 0.8
+			}
+		}
+	 }
 }
 
 // run coverage verification during the build
-test.finalizedBy(project.tasks.jacocoTestCoverageVerification)
-test.finalizedBy(project.tasks.jacocoTestReport)
+check.dependsOn jacocoTestCoverageVerification
+test.finalizedBy jacocoTestReport

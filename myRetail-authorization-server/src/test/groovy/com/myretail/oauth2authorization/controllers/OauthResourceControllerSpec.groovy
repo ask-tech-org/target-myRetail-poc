@@ -19,11 +19,11 @@ class OauthResourceControllerSpec extends Specification {
 
     def "test_getProductInformation_IllegalArgumentException"() {
         when:
-        oauthResourceController.user(principal)
+        oauthResourceController.user(null)
         
         then:
         def e = thrown(IllegalArgumentException)
-        e.message == "productId can't be null"
+        e.message == "user can't be null"
     }
     
 }

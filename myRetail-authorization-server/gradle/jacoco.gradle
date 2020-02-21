@@ -4,7 +4,13 @@ apply plugin: "jacoco"
 jacoco {
     toolVersion = "0.8.5"
 }
-/*
+
+def excludesList = [
+	'com/myretail/oauth2authorization/Oauth2AuthorizationApplication.class',
+	'com/myretail/oauth2authorization/configurations/*',
+	'com/myretail/oauth2authorization/domain/model/*'
+	]
+
 //ignore reporting main and configuration classes for POC
 //since these classes don't have any business process implementation
 //TODO need to revisit in future
@@ -16,9 +22,21 @@ jacocoTestReport {
         csv.enabled false
         xml.enabled true
     }
+	afterEvaluate {
+		classDirectories = files(classDirectories.files.collect {
+			fileTree(dir: it, excludes: excludesList)
+		})
+	}
 }
 
 jacocoTestCoverageVerification {
+	
+	afterEvaluate {
+		classDirectories = files(classDirectories.files.collect {
+			fileTree(dir: it, excludes: excludesList)
+		})
+	}
+	
     violationRules {
     	failOnViolation = false
     	// total line coverage
@@ -30,15 +48,15 @@ jacocoTestCoverageVerification {
         }
         // total branch coverage
        	rule {
-            excludes = ['com/myretail/oauth2authorization/Oauth2AuthorizationApplication.class', 'com/myretail/oauth2authorization/configurations/*.class']
+            
 	        limit {
 	            counter = 'BRANCH'
 	            minimum = 0.8
 	        }
     	}
      }
-}*/
+}
 
 // run coverage verification during the build
-test.finalizedBy(project.tasks.jacocoTestCoverageVerification)
-test.finalizedBy(project.tasks.jacocoTestReport)
+check.dependsOn jacocoTestCoverageVerification
+test.finalizedBy jacocoTestReport

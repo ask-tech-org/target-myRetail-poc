@@ -2,8 +2,7 @@ package com.myretail.products.services
 
 import static com.myretail.products.testdata.TestData.*
 import com.myretail.products.repositories.PriceDocumentRepositories
-import com.myretail.products.services.DefaultProductPriceService
-
+import com.myretail.products.services.exception.InternalServiceException
 import spock.lang.Specification
 
 class ProductPriceServiceSpec extends Specification {
@@ -57,7 +56,7 @@ class ProductPriceServiceSpec extends Specification {
         1 *  mockPriceDocumentRepositories.save(_) >> PRICE_DOCUMENT
     }
     
-    def "test_convertJsonToObject_IllegalArgumentExceptionr"() {
+    def "test_updatePriceInformation_IllegalArgumentException"() {
         when:
         mockDefaultProductPriceService.updatePriceInformation(productId, price)
         
@@ -72,4 +71,16 @@ class ProductPriceServiceSpec extends Specification {
         null            |      null   | "productId can't be null"
     }
 
+    def "test_updatePriceInformation_InternalServiceException"() {
+        when:
+        mockDefaultProductPriceService.updatePriceInformation(PRODUCT_ID, PRICE)
+        
+        then:
+        def e = thrown(InternalServiceException)
+        e.message == "error updating price information"
+        
+        and:
+        and:
+        1 *  mockPriceDocumentRepositories.save(_) >> { throw new InternalServiceException() }
+    }
 }

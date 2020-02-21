@@ -65,7 +65,7 @@ class JacksonJsonServiceSpec extends Specification {
         1 * mockObjectMapper.readValue(_, null) >> sampleObjects
     }
     
-    def "test_convertJsonToObject_IllegalArgumentExceptionr"() {
+    def "test_convertJsonToObject_IllegalArgumentException"() {
         when:
         jacksonJsonService.convertToObjects(jsonFile, classType)
         

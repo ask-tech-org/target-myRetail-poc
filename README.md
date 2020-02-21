@@ -50,11 +50,16 @@ There are total applications:
 4  Finally Run Gradle bootRun command in cmd and wait for the application to start.
 5. Once the application starts, Please use API testing application like POSTMAN to call authorization-server to get the access token using following:
      * ![alt ETDA](./docs/OauthAccessTokenRequest.PNG)
+     
      Note: current access token are valid for an hour
 6. Next use that access token as bearer token for GET/PUT request to Product Api
      * ![alt ETDA](./docs/GetRequest.PNG)
      * ![alt ETDA](./docs/PutRequest.PNG)
+     
 Note: Please make sure to turn off the ssl certificate validation. Because Product Api uses self signed ssl cerificate for encrypted https channel.
+
+
+# Development environment
     
 ## Eclipse
 

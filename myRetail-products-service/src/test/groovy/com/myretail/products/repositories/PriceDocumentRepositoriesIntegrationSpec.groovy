@@ -1,14 +1,9 @@
 package com.myretail.products.repositories
 
 import static com.myretail.products.testdata.TestData.*
-
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
-
-import com.myretail.products.repositories.PriceDocumentRepositories
 import com.myretail.products.data.model.PriceDocument
-
 import spock.lang.Specification
 
 @DataMongoTest

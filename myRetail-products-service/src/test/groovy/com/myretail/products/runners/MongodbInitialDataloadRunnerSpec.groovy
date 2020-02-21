@@ -1,13 +1,8 @@
 package com.myretail.products.runners
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
-
 import com.myretail.products.repositories.PriceDocumentRepositories
 import com.myretail.products.data.model.PriceDocument
-import com.myretail.products.runners.MongodbInitialDataloadRunner
 import com.myretail.products.services.utilities.JsonService
-
 import spock.lang.Specification
 
 class MongodbInitialDataloadRunnerSpec extends Specification {
@@ -16,9 +11,7 @@ class MongodbInitialDataloadRunnerSpec extends Specification {
     private static final String MOCK_INTITAL_LOAD_FILE = "classpath:mongodb-initial-load.json"
     private PriceDocumentRepositories mockPriceDocumentRepositories = Mock()
     private JsonService<PriceDocument> mockJsonService = Mock()
-    
-    private PriceDocument priceDocument = new PriceDocument()
-    private List<PriceDocument> priceDocuments = new ArrayList<PriceDocument>();
+    private List<PriceDocument> priceDocuments = []
     
     private MongodbInitialDataloadRunner mockMongodbInitialDataloadRunner = new MongodbInitialDataloadRunner(
         priceDocumentRepositories: mockPriceDocumentRepositories,

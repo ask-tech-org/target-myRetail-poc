@@ -1,9 +1,6 @@
 package com.myretail.products.services
 
 import static com.myretail.products.testdata.TestData.*
-import com.myretail.products.services.DefaultProductService
-import com.myretail.products.services.ProductInformationService
-import com.myretail.products.services.ProductPriceService
 import spock.lang.Specification
 
 class ProductServiceSpec extends Specification {

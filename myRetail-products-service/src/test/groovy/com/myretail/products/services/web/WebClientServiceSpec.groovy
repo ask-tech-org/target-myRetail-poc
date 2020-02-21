@@ -1,9 +1,6 @@
 package com.myretail.products.services.web
 
 import static com.myretail.products.testdata.TestData.*
-
-import com.myretail.products.services.web.DefaultWebClientSevice
-
 import spock.lang.Specification
 
 class WebClientServiceSpec extends Specification {

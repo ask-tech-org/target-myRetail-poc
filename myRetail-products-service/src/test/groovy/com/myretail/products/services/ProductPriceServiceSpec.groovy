@@ -1,9 +1,7 @@
 package com.myretail.products.services
 
 import static com.myretail.products.testdata.TestData.*
-
 import com.myretail.products.repositories.PriceDocumentRepositories
-import com.myretail.products.data.model.PriceDocument
 import com.myretail.products.services.DefaultProductPriceService
 
 import spock.lang.Specification
@@ -43,7 +41,7 @@ class ProductPriceServiceSpec extends Specification {
         result == null
         
         and:
-        1 *  mockPriceDocumentRepositories.findByProductId(PRODUCT_ID) >> { throw new RuntimeException() }
+        1 *  mockPriceDocumentRepositories.findByProductId(PRODUCT_ID) >> { throw new Exception() }
     }
     
     def "test_updatePriceInformation_success"() {

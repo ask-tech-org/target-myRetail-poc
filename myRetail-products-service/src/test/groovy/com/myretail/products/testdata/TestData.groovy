@@ -16,22 +16,22 @@ class TestData {
     static final String MESSAGE = "message"
     static final Exception CAUSE = new Exception("cause")
     static final double VALUE = 20.0
-    static Price PRICE = new Price(
+    static final Price PRICE = new Price(
         value: VALUE,
         currency_code: CURRENCY_CODE
     )
     
-    static PriceInformation PRICE_INFORMATION = new PriceInformation(
+    static final PriceInformation PRICE_INFORMATION = new PriceInformation(
         id: PRODUCT_ID,
         current_price: PRICE,
     )
   
-    static ProductInformation PRODUCT_INFORMATION = new ProductInformation(
+    static final ProductInformation PRODUCT_INFORMATION = new ProductInformation(
           id: PRODUCT_ID,
           name: PRODUCT_NAME,
           current_price: PRICE,
     )
-    static PriceDocument PRICE_DOCUMENT = new PriceDocument(
+    static final PriceDocument PRICE_DOCUMENT = new PriceDocument(
         productId : PRODUCT_ID, 
         currency_code: CURRENCY_CODE,
         value: VALUE,

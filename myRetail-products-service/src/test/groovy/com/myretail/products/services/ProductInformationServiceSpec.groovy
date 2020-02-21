@@ -1,15 +1,10 @@
 package com.myretail.products.services
 
+import static com.myretail.products.testdata.TestData.*
 import org.springframework.http.ResponseEntity
-
-import com.myretail.products.services.DefaultProductInformationService
 import com.myretail.products.services.utilities.JsonService
 import com.myretail.products.services.web.WebClientSevice
-
-import static com.myretail.products.testdata.TestData.*
-
 import org.springframework.http.HttpStatus
-
 import reactor.core.publisher.Mono
 import spock.lang.Specification
 

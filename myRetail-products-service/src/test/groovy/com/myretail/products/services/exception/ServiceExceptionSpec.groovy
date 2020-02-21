@@ -1,9 +1,6 @@
 package com.myretail.products.services.exception
 
 import static com.myretail.products.testdata.TestData.*
-
-import com.myretail.products.services.exception.ServiceException
-
 import spock.lang.Specification
 
 class ServiceExceptionSpec extends Specification {

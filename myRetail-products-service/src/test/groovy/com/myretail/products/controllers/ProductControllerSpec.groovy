@@ -1,11 +1,7 @@
 package com.myretail.products.controllers
 
 import static com.myretail.products.testdata.TestData.*
-
-import com.myretail.products.controllers.ProductController
-import com.myretail.products.domain.model.ProductInformation
 import com.myretail.products.services.ProductService
-
 import spock.lang.Specification
 
 class ProductControllerSpec extends Specification {
@@ -13,7 +9,7 @@ class ProductControllerSpec extends Specification {
     private ProductService mockProductService = Mock()
     private ProductController mockProductController = new ProductController(
         productService : mockProductService
-    );
+    )
     
     def "test_getProductionInformation_success"() {
         when:
@@ -25,7 +21,7 @@ class ProductControllerSpec extends Specification {
         result.id == PRODUCT_ID
         
         and:
-        1* mockProductService.getProductInformation(PRODUCT_ID) >> PRODUCT_INFORMATION 
+        1 * mockProductService.getProductInformation(PRODUCT_ID) >> PRODUCT_INFORMATION 
     }
     
     def "test_getProductionInformation_IllegalArgumentException"() {
@@ -46,7 +42,7 @@ class ProductControllerSpec extends Specification {
         result.id == PRODUCT_ID
         
         and:
-        1* mockProductService.updatePriceInformation(PRODUCT_ID, PRICE) >> PRICE_INFORMATION
+        1 * mockProductService.updatePriceInformation(PRODUCT_ID, PRICE) >> PRICE_INFORMATION
     }
     
     def "test_updateProductionInformation_IllegalArgumentExceptionr"() {

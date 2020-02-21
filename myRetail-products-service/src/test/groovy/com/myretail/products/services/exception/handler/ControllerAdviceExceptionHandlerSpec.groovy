@@ -4,9 +4,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.mock.web.MockHttpServletResponse
 import org.springframework.web.context.request.ServletWebRequest
-
 import com.myretail.products.exception.handler.ControllerAdviceExceptionHandler
-
 import spock.lang.Specification
 
 class ControllerAdviceExceptionHandlerSpec extends Specification {

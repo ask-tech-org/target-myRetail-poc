@@ -1,6 +1,5 @@
 package com.myretail.products.services.utilities
 
-import com.fasterxml.jackson.databind.JavaType
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.TextNode
@@ -53,10 +52,8 @@ class JacksonJsonServiceSpec extends Specification {
     
     def "test_convertJsonToObject_success"() {
         given:
-        def sampleObjects = new ArrayList<Sample>();
-            sampleObjects.add(sampleObject) 
-        def file = new File(TEST_JSON_FILE)
-        
+        def sampleObjects = [sampleObject]
+               
         when:
         def result = jacksonJsonService.convertToObjects(TEST_JSON_FILE, Sample)
         
@@ -65,7 +62,7 @@ class JacksonJsonServiceSpec extends Specification {
         
         and:
         1 * mockObjectMapper.getTypeFactory() >> typeFactory
-        1 * mockObjectMapper.readValue(file, null) >> sampleObjects
+        1 * mockObjectMapper.readValue(_, null) >> sampleObjects
     }
     
     def "test_convertJsonToObject_IllegalArgumentExceptionr"() {

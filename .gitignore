@@ -1,0 +1,48 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# KeyStore Files # allowing just for POC
+#*.jks
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# files from eclipse
+.project
+.classpath
+org.eclipse.*
+
+# SpringBoot related files
+application-local.properties
+
+# gradle related files
+/bin/
+/.gradle/
+/build/
+
+# This jar is needed for building
+!gradle-wrapper.jar
+
+# Auto generated files
+src/main/java-generated
+
+#intellij files
+/.idea/
+/out/

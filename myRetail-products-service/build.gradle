@@ -44,6 +44,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     
     //for unit testing only
+    //adding spring-boot-starter-test as compile time dependency
+    //Because ActiveProfiles is being used in application code for loading initial data to mongoDB
     implementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }

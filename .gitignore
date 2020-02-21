@@ -33,16 +33,13 @@ org.eclipse.*
 application-local.properties
 
 # gradle related files
-/bin/
-/.gradle/
-/build/
+*/bin/
+*/.gradle/
+*/build/
 
 # This jar is needed for building
 !gradle-wrapper.jar
 
-# Auto generated files
-src/main/java-generated
-
 #intellij files
-/.idea/
-/out/
+*/.idea/
+*/out/

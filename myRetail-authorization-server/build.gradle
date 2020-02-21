@@ -5,6 +5,11 @@ plugins {
     id 'eclipse'
 }
 
+//haven't used any static code analysis tools like checkstyle for this work due to time limitation
+//TODO need to revisit to add checkstyle
+apply from: 'gradle/codenarc.gradle'
+apply from: 'gradle/jacoco.gradle'
+
 group = 'com.myretail.oauth2authorization'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -30,10 +35,11 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    
+    //For unit testing 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'org.codehaus.groovy:groovy-all:2.5.7'
     testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
     testImplementation 'org.spockframework:spock-spring:1.2-groovy-2.5'

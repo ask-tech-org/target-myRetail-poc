@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@SuppressWarnings("checkstyle:hideutilityclassconstructor") 
+//ignoring utility class constructor error 
+//since this is part of the spring application design
 public class Oauth2AuthorizationApplication {
     
     //implement this non reactive oauth2.0 authorization server, just to facilitate authentication and authorization support for oauth2.0 client credential grant types

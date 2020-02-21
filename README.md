@@ -26,26 +26,36 @@ The above tech stacks are being identified based on the following:
     * Scalability
     * Maintainability
 
-## Usages
+## Application Informations
 
 There are total applications:
 
     1.  Oauth2.0 Authorization Server
         
         * This application provides oauth access token for client credential and userInfo for authenticated users.
-
-    2.  Products-Service
-                
-        * This application provides Product Api for myRetails company.
-        
             * Aavailable Endpoints:
-                1.  GET request: /api/v1/products/{id}
-                2.  PUT request: /api/v1/products/{id}
-                    
+                1. Access token: /oauth/token : eg. http://localhost:8080/oauth/token
+                2. /api/v1/authorize/user : eg. http://localhost:8080/api/v1/authorize/user
+    2.  Products-Service       
+        * This application provides Product Api for myRetails company.
+            * Aavailable Endpoints:
+                1.  GET request: /api/v1/products/{id} : https://localhost:8443/api/v1/products/13860427
+                2.  PUT request: /api/v1/products/{id} : https://localhost:8443/api/v1/products/13860427
                     *  RequestBody: {"value": 124.23,"currency_code": "USD"}
-                    
+
+## Usages                    
 1. Get code checked out from git at command line
-2. Na     
+2. Navigate to appropiate application (myRetail-authorization-server or myRetail-products-service)folder.
+3. Run Gradle clean Build command in cmd
+4  Finally Run Gradle bootRun command in cmd and wait for the application to start.
+5. Once the application starts, Please use API testing application like POSTMAN to call authorization-server to get the access token using following:
+     * ![alt ETDA](./docs/OauthAccessTokenRequest.PNG)
+     Note: current access token are valid for an hour
+6. Next use that access token as bearer token for GET/PUT request to Product Api
+     * ![alt ETDA](./docs/GetRequest.PNG)
+     * ![alt ETDA](./docs/PutRequest.PNG)
+Note: Please make sure to turn off the ssl certificate validation. Because Product Api uses self signed ssl cerificate for encrypted https channel.
+    
 ## Eclipse
 
 1. Get code checked out from git at command line

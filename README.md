@@ -19,33 +19,41 @@ This proof fo concept(POC) is being done based on the following requirements:
     * Spock
 
 The above tech stacks are being identified based on the following:
+
     * Reliability
     * Scalability
     * Maintainability
 
 # Getting Started
 
-### Reference Documentation
-For further reference, please consider the following sections:
+## Eclipse
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/gradle-plugin/reference/html/)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/reference/htmlsingle/#boot-features-developing-web-applications)
-* [Spring Security](https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/reference/htmlsingle/#boot-features-security)
-* [OAuth2 Resource Server](https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/reference/htmlsingle/#boot-features-security-oauth2-server)
+1. Get code checked out from git at command line
+2. In eclipse Import as a gradle project
+    1. File -> Import -> Existing Gradle Project . 
+    2. Use all default options.
+    3. Select the directory that you checked out.
+    4. Wait for downloads
+3. Run a gradle build
+4. ... Steps to be determined from here ...
 
-### Guides
-The following guides illustrate how to use some features concretely:
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-* [Securing a Web Application](https://spring.io/guides/gs/securing-web/)
-* [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/)
-* [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/)
+## Eclipse Formatter
+    * spaces instead of tab 
 
-### Additional Links
-These additional references should also help you:
+## Groovy Support
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+1. Install Groovy 2.5.4([releases](http://groovy-lang.org/download.html#distro))
+2. Set GROOVY_HOME and add GROOVY_HOME/bin to your path
+3. Within eclipse install groovy plugin 
+
+## Eclipse Gradle Plugin (Optional)
+
+Gradle is required to build our application. If you are using the eclipse gradle plugin make the following configuration changes:
+* Preferences -> Gradle -> set Specific Gradle Version to match the same version as your command line gradle (gradle --version)
+* Preferences -> Gradle - set Gradle User Home 
+
+## Add Folders to Build Path (Eclipse)
+
+
 

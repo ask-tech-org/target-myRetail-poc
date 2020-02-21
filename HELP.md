@@ -10,19 +10,14 @@ This proof fo concept(POC) is being done based on the following requirements:
 *	Reads pricing information from a NoSQL data store and combines it with the product id and name from the HTTP request into a single response.  
 *	BONUS: Accepts an HTTP PUT request at the same path (/products/{id}), containing a JSON request body similar to the GET response, and updates the product’s price in the data store.  
 
-This POC is being done with the following tech stacks:
-
-Application:
+# Tech Stacks:
     * Spring boot 2.2.4.RELEASE
         * webflux
     * Embeded MongoDB
         * mongodb-reactive
-Securing:
-    * Oauth2.0 - Client Credential
-Unit-Testing:  
+    * Oauth2.0 - Client Credential 
     * Spock
     
-
 # Getting Started
 
 ### Reference Documentation

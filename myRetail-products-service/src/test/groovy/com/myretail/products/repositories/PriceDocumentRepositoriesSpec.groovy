@@ -7,7 +7,7 @@ import com.myretail.products.data.model.PriceDocument
 import spock.lang.Specification
 
 @DataMongoTest
-class PriceDocumentRepositoriesIntegrationSpec extends Specification {
+class PriceDocumentRepositoriesSpec extends Specification {
 
     @Autowired
     private PriceDocumentRepositories priceDocumentRepositories
@@ -22,7 +22,7 @@ class PriceDocumentRepositoriesIntegrationSpec extends Specification {
 
     def "test_findByProductId_success"() {
         when:
-        def result = priceDocumentRepositories.findById(PRODUCT_ID).get()
+        def result = priceDocumentRepositories.findByProductId(PRODUCT_ID).get()
         
         then:
         result.currency_code == CURRENCY_CODE

@@ -25,17 +25,17 @@ public class ProductController {
     private ProductService productService;
     
     @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
-    public Mono<ProductInformation> getProductionInformation(@PathVariable("id") String productId) {
+    public Mono<ProductInformation> getProductInformation(@PathVariable("id") String productId) {
         Assert.notNull(productId, "productId can't be null");
-        LOGGER.info("##getting production information for {}", productId);
+        LOGGER.info("##getting product information for {}", productId);
         return Mono.just(productService.getProductInformation(productId));
     }
     
     @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
-    public Mono<PriceInformation> updateProductionInformation(@PathVariable("id") String productId, @RequestBody Price price) {
+    public Mono<PriceInformation> updateProductInformation(@PathVariable("id") String productId, @RequestBody Price price) {
         Assert.notNull(productId, "productId can't be null");
         Assert.notNull(price, "price can't be null");
-        LOGGER.info("##updating production information for {}", price);
+        LOGGER.info("##updating product information for {}", price);
         return Mono.just(productService.updatePriceInformation(productId, price));
     }
 }

@@ -32,12 +32,12 @@ There are total two applications:
 
     1.  Oauth2.0 Authorization Server        
         * This application provides oauth access token for client credential and userInfo for authenticated users.
-            * Aavailable Endpoints:
-                1. Access token: /oauth/token : eg. http://localhost:9443/oauth/token
-                2. UserInfo: /api/v1/authorize/user : eg. http://localhost:9443/api/v1/authorize/user
+            * Available Endpoints:
+                1. Access token: /oauth/token : eg. https://localhost:9443/oauth/token
+                2. UserInfo: /api/v1/authorize/user : eg. https://localhost:9443/api/v1/authorize/user
     2.  Products-Service       
         * This application provides Product Api for myRetails company.
-            * Aavailable Endpoints:
+            * Available Endpoints:
                 1.  GET request: /api/v1/products/{id} : https://localhost:8443/api/v1/products/13860427
                 2.  PUT request: /api/v1/products/{id} : https://localhost:8443/api/v1/products/13860427
                     *  RequestBody: {"value": 124.23,"currency_code": "USD"}

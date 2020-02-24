@@ -41,7 +41,7 @@ class ProductPriceServiceSpec extends Specification {
         result == null
         
         and:
-        1 *  mockPriceDocumentRepositories.findByProductId(PRODUCT_ID) >> { throw new Exception() }
+        1 *  mockPriceDocumentRepositories.findByProductId(PRODUCT_ID) >> null
     }
     
     def "test_updatePriceInformation_success"() {

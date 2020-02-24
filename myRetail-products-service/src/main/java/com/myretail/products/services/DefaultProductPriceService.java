@@ -26,11 +26,16 @@ public class DefaultProductPriceService implements ProductPriceService {
         Price price = null;
         try {
             PriceDocument priceDocument = priceDocumentRepositories.findByProductId(productId);
-            price = Price.builder()
-                    .currency_code(priceDocument.getCurrency_code())
-                    .value(priceDocument.getValue())
-                    .build();
-            LOGGER.info("retrieved price information {}", price);
+            if(priceDocument != null) {
+                price = Price.builder()
+                        .currency_code(priceDocument.getCurrency_code())
+                        .value(priceDocument.getValue())
+                        .build();
+                LOGGER.info("retrieved price information {}", price);
+            }
+            else {
+                LOGGER.error("null priceDocument detected");
+            }
         } catch (Exception e) {
             /*
              * similar to ProductInformationService, ignore throwing any exception 

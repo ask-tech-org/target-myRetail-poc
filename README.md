@@ -104,11 +104,12 @@ Gradle is required to build our application. If you are using the eclipse gradle
 * Preferences -> Gradle -> set Specific Gradle Version to match the same version as your command line gradle (gradle --version)
 * Preferences -> Gradle - set Gradle User Home 
 
-#   Things that are not being implemented due to the requirements, but need to be considered:
+## Things that are not being implemented, but need to be considered:
 
 I didn't implemented the following things since it wasn't part of the requirement by discussing with MichaelD Kelly and require additional informations
-    * end to end engineering
-        * swagger 
-        * containerize the application(docker)
-        * automated build and deployment
-        * automated integration testing
+
+* end to end engineering
+    * swagger 
+    * containerize the application(docker)
+    * automated build and deployment
+    * automated integration testing

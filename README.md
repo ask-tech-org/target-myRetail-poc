@@ -61,7 +61,7 @@ There are total two applications:
     2.  install [ca.pem](./docs/cert/ca.pem) to API testing application like POSTMAN CA certificates using following:
         * ![alt ETDA](./docs/CaCertificate.PNG)
     3.  turn off ssl certificate validation in POSTMAN using following:
-        * ![alt ETDA](./docs/SslValidation.PNG.PNG)
+        * ![alt ETDA](./docs/SslValidation.PNG)
     4.  call authorization-server access token endpoint (https://localhost:9443/oauth/token) to get the access token using following:
             * ![alt ETDA](./docs/OauthAccessTokenRequest.PNG)
      

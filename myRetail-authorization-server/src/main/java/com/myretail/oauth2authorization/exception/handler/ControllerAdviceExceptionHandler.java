@@ -9,8 +9,10 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import com.myretail.oauth2authorization.domain.model.ErrorInformation;
 
-//handling exception in a single class
-//because, as per POC, we don't have resource specific exception 
+/*
+ * handling exception in a single class
+ * because, as per POC, we don't have resource specific exception 
+ */
 @ControllerAdvice
 public class ControllerAdviceExceptionHandler extends ResponseEntityExceptionHandler {
     

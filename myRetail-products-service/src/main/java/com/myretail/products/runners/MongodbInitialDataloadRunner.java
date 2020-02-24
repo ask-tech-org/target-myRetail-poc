@@ -14,8 +14,10 @@ import com.myretail.products.repositories.PriceDocumentRepositories;
 import com.myretail.products.services.utilities.JsonService;
 
 @Component
-//preloading this only for dev environment just for POC
-//should be pointer to a MongoDB datastore for upper environment eg. test, stage and prod
+/*
+ * preloading this only for dev environment just for POC
+ * should be pointer to a MongoDB datastore for upper environment eg. test, stage and prod
+ */
 @ActiveProfiles("dev")
 public class MongodbInitialDataloadRunner implements CommandLineRunner {
 

@@ -20,6 +20,12 @@ public class JacksonJsonService<T> implements JsonService<T> {
     @Autowired
     private ObjectMapper objectMapper;
 
+    /**
+     * Get field value for a given jsonFormattedString and fieldName
+     * @param jsonFormattedString, the string that needs to be parsed
+     * @param fieldName, the fieldName that need to be used to get the value
+     * @return String, the field value
+     */
     @Override
     public String getFieldValue(String jsonFormattedString, String fieldName) {
         Assert.notNull(jsonFormattedString, "jsonFormattedString can't be null");
@@ -36,6 +42,12 @@ public class JacksonJsonService<T> implements JsonService<T> {
         return fieldValue;
     }
     
+    /**
+     * Converts to list of objects for a given jsonFile and classType
+     * @param jsonFile, the file that needs to be used
+     * @param classType, the class type that need to be used to get java type
+     * @return List<T>, list of objects for the specified classType 
+     */
     @Override
     public List<T> convertToObjects(String jsonFile, Class<T> classType) {
         Assert.notNull(jsonFile, "jsonFile can't be null");

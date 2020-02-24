@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class OauthResourceController {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(OauthResourceController.class);
-    
-    //check if the user has a valid token to access the resource
-    //based on the bearer token provided by the client application
-    //principal name get retrieved from the authorization server 
-    //based on the bearer token and client credentials grant_type
-    //during the access token request
+    /*
+     * check if the user has a valid token to access the resource
+     * based on the bearer token provided by the client application
+     * principal name get retrieved from the authorization server 
+     * based on the bearer token and client credentials grant_type
+     * during the access token request
+     */
     @RequestMapping("/authorize/user")
     public Principal user(Principal user) {
         Assert.notNull(user, "user can't be null");

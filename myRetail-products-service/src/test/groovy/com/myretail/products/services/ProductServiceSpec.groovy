@@ -18,13 +18,18 @@ class ProductServiceSpec extends Specification {
         def result = mockDefaultProductService.getProductInformation(PRODUCT_ID)
         
         then:
-        result.name == PRODUCT_NAME
+        result.name == productName
         result.current_price.currency_code == CURRENCY_CODE
         result.current_price.value == VALUE
         
         and:
-        1 *  mockProductInformationService.getProductName(PRODUCT_ID) >> PRODUCT_NAME
-        1 *  mockProductPriceService.getPrice(PRODUCT_ID) >> PRICE
+        1 *  mockProductInformationService.getProductName(PRODUCT_ID) >> productName
+        1 *  mockProductPriceService.getPrice(PRODUCT_ID) >> price
+        
+        where:
+        productName     |    price
+        ""              |    PRICE
+        PRODUCT_NAME    |    PRICE
     }
     
     def "test_getProductInformation_notfound"() {

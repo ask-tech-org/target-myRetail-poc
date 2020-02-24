@@ -8,6 +8,7 @@ import org.springframework.util.Assert;
 import com.myretail.products.data.model.PriceDocument;
 import com.myretail.products.domain.model.Price;
 import com.myretail.products.domain.model.PriceInformation;
+import com.myretail.products.exception.ProductNotFoundException;
 import com.myretail.products.repositories.PriceDocumentRepositories;
 import com.myretail.products.services.exception.InternalServiceException;
 
@@ -53,20 +54,37 @@ public class DefaultProductPriceService implements ProductPriceService {
                     .currency_code(price.getCurrency_code())
                     .value(price.getValue())
                     .build();
-            
-            //according to spring data, save works as both update or create
-            //if it finds a matching data by the id, it just update the existing record. 
-            PriceDocument savePriceDocument = priceDocumentRepositories.save(priceDocument);
-            LOGGER.info("udpated priceinformation for {}", savePriceDocument);
-            
-            return PriceInformation.builder()
-                    .current_price(Price.builder()
-                            .currency_code(savePriceDocument.getCurrency_code())
-                            .value(savePriceDocument.getValue())
-                            .build())
-                    .id(savePriceDocument.getProductId())
-                    .build();
+             
+            PriceInformation priceInformation = null;
+            if(priceDocumentRepositories.existsById(productId)) {
+                /* 
+                 * according to spring data, save works as both update or create
+                 * if it finds a matching data by the id, it just update the existing record.
+                 */
+                PriceDocument savePriceDocument = priceDocumentRepositories.save(priceDocument);
+                LOGGER.info("updated priceinformation for {}", savePriceDocument);
+                priceInformation = PriceInformation.builder()
+                        .current_price(Price.builder()
+                                .currency_code(savePriceDocument.getCurrency_code())
+                                .value(savePriceDocument.getValue())
+                                .build())
+                        .id(savePriceDocument.getProductId())
+                        .build();
+            }
+            else {
+                /*
+                 * throwing exception if product doesn't exist based on the productId
+                 * so that an appropriate error can be sent back to client
+                 */
+                String errorMessage = "product not found";
+                LOGGER.error(errorMessage);
+                throw new ProductNotFoundException(errorMessage);
+            }
+            return priceInformation;
         } catch(Exception e) {
+            if(e instanceof ProductNotFoundException) {
+                throw e;
+            }
             String message = "error updating price information";
             LOGGER.error(message, e);
             throw new InternalServiceException(message, e);

@@ -3,6 +3,7 @@ package com.myretail.products.services
 import static com.myretail.products.testdata.TestData.*
 import com.myretail.products.repositories.PriceDocumentRepositories
 import com.myretail.products.services.exception.InternalServiceException
+import com.myretail.products.exception.ProductNotFoundException
 import spock.lang.Specification
 
 class ProductPriceServiceSpec extends Specification {
@@ -53,6 +54,7 @@ class ProductPriceServiceSpec extends Specification {
         result.id == PRODUCT_ID
         
         and:
+        1 *  mockPriceDocumentRepositories.existsById(PRODUCT_ID) >> true
         1 *  mockPriceDocumentRepositories.save(_) >> PRICE_DOCUMENT
     }
     
@@ -70,6 +72,19 @@ class ProductPriceServiceSpec extends Specification {
         null            |      PRICE  | "productId can't be null"
         null            |      null   | "productId can't be null"
     }
+    
+    def "test_updatePriceInformation_ProductNotFoundException"() {
+        when:
+        mockDefaultProductPriceService.updatePriceInformation(PRODUCT_ID, PRICE)
+        
+        then:
+        def e = thrown(ProductNotFoundException)
+        e.message == "product not found"
+        
+        and:
+        and:
+        1 *  mockPriceDocumentRepositories.existsById(PRODUCT_ID) >> false
+    }
 
     def "test_updatePriceInformation_InternalServiceException"() {
         when:
@@ -81,6 +96,7 @@ class ProductPriceServiceSpec extends Specification {
         
         and:
         and:
+        1 *  mockPriceDocumentRepositories.existsById(PRODUCT_ID) >> true
         1 *  mockPriceDocumentRepositories.save(_) >> { throw new InternalServiceException() }
     }
 }

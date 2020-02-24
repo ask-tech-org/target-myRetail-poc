@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
 import com.myretail.oauth2authorization.domain.model.ErrorInformation;
 
 /*
@@ -14,7 +14,7 @@ import com.myretail.oauth2authorization.domain.model.ErrorInformation;
  * because, as per POC, we don't have resource specific exception 
  */
 @ControllerAdvice
-public class ControllerAdviceExceptionHandler extends ResponseEntityExceptionHandler {
+public class ControllerAdviceExceptionHandler {
     
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorInformation> handleIllegalArgumentException(IllegalArgumentException illegalArgumentException) {

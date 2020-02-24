@@ -1,10 +1,10 @@
-package com.myretail.products.services.exception.handler
+package com.myretail.products.exception.handler
 
 import org.springframework.http.HttpStatus
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.mock.web.MockHttpServletResponse
 import org.springframework.web.context.request.ServletWebRequest
-import com.myretail.products.exception.handler.ControllerAdviceExceptionHandler
+import com.myretail.products.exception.ProductNotFoundException
 import spock.lang.Specification
 
 class ControllerAdviceExceptionHandlerSpec extends Specification {
@@ -14,7 +14,21 @@ class ControllerAdviceExceptionHandlerSpec extends Specification {
     private ServletWebRequest servletWebRequest = new ServletWebRequest(mockHttpServletRequest, mockHttpServletResponse)
     
     private ControllerAdviceExceptionHandler controllerAdviceExceptionHandler = new ControllerAdviceExceptionHandler()
-               
+    
+    def "test_handleProductNotFoundException_sucess"() {
+        given:
+        def exception = new ProductNotFoundException("ProductNotFoundException")
+        
+        when:
+        def result = controllerAdviceExceptionHandler.handleNotFoundServiceException(exception)
+
+        then:
+        result.status == HttpStatus.NOT_FOUND
+        result.body.error_code == HttpStatus.NOT_FOUND.toString()
+        result.body.error_message == exception.message
+        result.body.error_document == null
+    }
+    
     def "test_handleIllegalArgumentException_sucess"() {
         given:
         def exception = new IllegalArgumentException("IllegalArgumentException")

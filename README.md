@@ -53,7 +53,7 @@ There are total two applications:
 1. Get code checked out from git using command line
 2. Navigate to appropiate application (myRetail-authorization-server or myRetail-products-service)folder.
 3. Run 'gradle clean build' command in cmd
-    *   Note: four reports will be generated after the successful built:
+    *   Note: four reports will be generated after the successful built (please check if you are interested):
     
             1.  checkstyle(java - static code analysis)
             2.  codenarc(groovy - static code analysis)    

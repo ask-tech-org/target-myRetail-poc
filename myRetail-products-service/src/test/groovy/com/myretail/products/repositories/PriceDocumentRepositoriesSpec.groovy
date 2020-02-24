@@ -29,4 +29,9 @@ class PriceDocumentRepositoriesSpec extends Specification {
         result.productId == PRODUCT_ID
         result.value == VALUE
     }
+    
+    def "test_findByProductId_error"() {
+        expect:
+        priceDocumentRepositories.findByProductId(null) == null
+    }
 }

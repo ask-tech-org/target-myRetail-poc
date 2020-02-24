@@ -6,15 +6,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import com.myretail.products.domain.model.ErrorInformation;
+import com.myretail.products.exception.ProductNotFoundException;
 
 /*
  * handling exception in a single class
  * because, as per POC, we don't have resource specific exception 
  */
 @ControllerAdvice
-public class ControllerAdviceExceptionHandler extends ResponseEntityExceptionHandler {
+public class ControllerAdviceExceptionHandler {
+    
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<ErrorInformation> handleNotFoundServiceException(ProductNotFoundException productNotFoundException) {
+        return ResponseEntity.status(productNotFoundException.getStatus())
+                .body(ErrorInformation.builder()
+                        .time_stamp(LocalDateTime.now())
+                        .error_code(productNotFoundException.getStatus().toString())
+                        .error_message(productNotFoundException.getMessage())
+                        .build());
+    }
     
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorInformation> handleIllegalArgumentException(IllegalArgumentException illegalArgumentException) {

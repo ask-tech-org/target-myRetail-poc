@@ -8,6 +8,9 @@ import org.springframework.util.Assert;
 import com.myretail.products.domain.model.Price;
 import com.myretail.products.domain.model.PriceInformation;
 import com.myretail.products.domain.model.ProductInformation;
+import com.myretail.products.exception.ProductNotFoundException;
+
+import io.netty.util.internal.StringUtil;
 
 /*
  * aggregator service for the product
@@ -34,6 +37,15 @@ public class DefaultProductService implements ProductService {
          */
         String productName = productInformationService.getProductName(productId);
         Price price = productPriceService.getPrice(productId);
+        if(StringUtil.isNullOrEmpty(productName) && price == null) {
+            /*
+             * throwing exception if productName and price both are null Or empty
+             * so that an appropriate error can be sent back to client
+             */
+            String errorMessage = "product not found";
+            LOGGER.error("emptyOrNull {} or {} detected", productName, price);
+            throw new ProductNotFoundException(errorMessage);
+        }
         return ProductInformation.builder()
                 .id(productId)
                 .current_price(price)

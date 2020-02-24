@@ -1,6 +1,7 @@
 package com.myretail.products.services
 
 import static com.myretail.products.testdata.TestData.*
+import com.myretail.products.exception.ProductNotFoundException
 import spock.lang.Specification
 
 class ProductServiceSpec extends Specification {
@@ -24,6 +25,19 @@ class ProductServiceSpec extends Specification {
         and:
         1 *  mockProductInformationService.getProductName(PRODUCT_ID) >> PRODUCT_NAME
         1 *  mockProductPriceService.getPrice(PRODUCT_ID) >> PRICE
+    }
+    
+    def "test_getProductInformation_notfound"() {
+        when:
+        mockDefaultProductService.getProductInformation(PRODUCT_ID)
+        
+        then:
+        def e = thrown(ProductNotFoundException)
+        e.message == "product not found"
+        
+        and:
+        1 *  mockProductInformationService.getProductName(PRODUCT_ID) >> null
+        1 *  mockProductPriceService.getPrice(PRODUCT_ID) >> null
     }
     
     def "test_getProductInformation_IllegalArgumentException"() {

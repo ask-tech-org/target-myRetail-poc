@@ -106,10 +106,14 @@ Gradle is required to build our application. If you are using the eclipse gradle
 
 ## Things that are not being implemented, but need to be considered:
 
-I didn't implemented the following things since it wasn't part of the requirement by discussing with MichaelD Kelly and require additional informations
+I didn't implemented the following things since it wasn't part of the requirement (confirmed with MichaelD Kelly):
 
 * end to end engineering
     * swagger 
     * containerize the application(docker)
     * automated build and deployment
     * automated integration testing
+
+### Developer
+Name | email
+Asiqur Rahman | asiqurrahman04@gmail.com

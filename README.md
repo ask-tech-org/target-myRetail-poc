@@ -54,10 +54,11 @@ There are total two applications:
 2. Navigate to appropiate application (myRetail-authorization-server or myRetail-products-service)folder.
 3. Run 'gradle clean build' command in cmd
     *   Note: four reports will be generated after the successful built:
-            *   checkstyle(java - static code analysis)
-            *   codenarc(groovy - static code analysis)    
-            *   jacoco(java - code coverage)  
-            *   test
+    
+            1.  checkstyle(java - static code analysis)
+            2.  codenarc(groovy - static code analysis)    
+            3.  jacoco(java - code coverage)  
+            4.  test
 4. Finally run 'gradle bootRun' command in cmd and wait for the application to start.
     *   Note: Please make sure sure both application are being started successfully before go to step 5 by verifying the startup logs in cmd (StartupInfoLogger - Started Oauth2AuthorizationApplication... and StartupInfoLogger - Started ProductsServiceApplication...)
 5. Once the applications start sucessfully, please take the following steps to get api response
@@ -115,5 +116,6 @@ I didn't implemented the following things since it wasn't part of the requiremen
     * automated integration testing
 
 ### Developer
-Name | email
+Name          | email
+--------------| ---
 Asiqur Rahman | asiqurrahman04@gmail.com

@@ -31,10 +31,12 @@ public class DefaultProductPriceService implements ProductPriceService {
                     .build();
             LOGGER.info("retrieved price information {}", price);
         } catch (Exception e) {
-            //similar to ProductInformationService, ignore throwing any exception 
-            //assuming user will satisfy with overall partial product information.
-            //however it all depends on the business requirement
-            //if needed it should throw internalserviceexception
+            /*
+             * similar to ProductInformationService, ignore throwing any exception 
+             * assuming user will satisfy with overall partial product information.
+             * however it all depends on the business requirement
+             * if needed it should throw internalserviceexception
+             */
             String message = "error retrieving price information";
             LOGGER.error(message, e);
         }

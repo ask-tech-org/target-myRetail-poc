@@ -18,8 +18,9 @@ import lombok.ToString;
 @NoArgsConstructor
 public class PriceDocument {
     
-    //it mostly depends on the business requirement
-    //assuming productId is the pricedocument Id
+    /*
+     * assuming productId is the pricedocument Id
+     */
     @Id
     private String productId;
     private double value;

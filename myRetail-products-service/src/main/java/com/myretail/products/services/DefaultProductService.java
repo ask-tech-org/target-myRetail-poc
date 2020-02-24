@@ -9,7 +9,6 @@ import com.myretail.products.domain.model.Price;
 import com.myretail.products.domain.model.PriceInformation;
 import com.myretail.products.domain.model.ProductInformation;
 import com.myretail.products.exception.ProductNotFoundException;
-
 import io.netty.util.internal.StringUtil;
 
 /*

@@ -33,14 +33,20 @@ There are total two applications:
     1.  Oauth2.0 Authorization Server        
         * This application provides oauth access token for client credential and userInfo for authenticated users.
             * Aavailable Endpoints:
-                1. Access token: /oauth/token : eg. http://localhost:8080/oauth/token
-                2. UserInfo: /api/v1/authorize/user : eg. http://localhost:8080/api/v1/authorize/user
+                1. Access token: /oauth/token : eg. http://localhost:9443/oauth/token
+                2. UserInfo: /api/v1/authorize/user : eg. http://localhost:9443/api/v1/authorize/user
     2.  Products-Service       
         * This application provides Product Api for myRetails company.
             * Aavailable Endpoints:
                 1.  GET request: /api/v1/products/{id} : https://localhost:8443/api/v1/products/13860427
                 2.  PUT request: /api/v1/products/{id} : https://localhost:8443/api/v1/products/13860427
                     *  RequestBody: {"value": 124.23,"currency_code": "USD"}
+
+## Build and Runtime environment
+
+    1.  java 8 or later
+    2.  gradle 5.4.1 
+
 
 ## Usages
                     
@@ -64,9 +70,6 @@ There are total two applications:
             * ![alt ETDA](./docs/GetRequest.PNG)
             * ![alt ETDA](./docs/PutRequest.PNG)
      
-Note: Please make sure to turn off the ssl certificate validation. Because Product Api uses self signed ssl cerificate for encrypted https channel.
-
-
 # Development environment
     
 ## Eclipse
@@ -95,5 +98,6 @@ Note: Please make sure to turn off the ssl certificate validation. Because Produ
 Gradle is required to build our application. If you are using the eclipse gradle plugin make the following configuration changes:
 * Preferences -> Gradle -> set Specific Gradle Version to match the same version as your command line gradle (gradle --version)
 * Preferences -> Gradle - set Gradle User Home 
+
 
 

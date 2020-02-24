@@ -13,7 +13,6 @@ import com.myretail.products.domain.model.Price;
 import com.myretail.products.domain.model.PriceInformation;
 import com.myretail.products.domain.model.ProductInformation;
 import com.myretail.products.services.ProductService;
-
 import reactor.core.publisher.Mono;
 
 @RestController

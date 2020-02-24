@@ -22,7 +22,7 @@ class PriceDocumentRepositoriesSpec extends Specification {
 
     def "test_findByProductId_success"() {
         when:
-        def result = priceDocumentRepositories.findByProductId(PRODUCT_ID).get()
+        def result = priceDocumentRepositories.findByProductId(PRODUCT_ID)
         
         then:
         result.currency_code == CURRENCY_CODE

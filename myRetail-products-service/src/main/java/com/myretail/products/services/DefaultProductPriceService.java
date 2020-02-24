@@ -88,6 +88,7 @@ public class DefaultProductPriceService implements ProductPriceService {
             return priceInformation;
         } catch(Exception e) {
             if(e instanceof ProductNotFoundException) {
+                LOGGER.error(e.getMessage(), e);
                 throw e;
             }
             String message = "error updating price information";

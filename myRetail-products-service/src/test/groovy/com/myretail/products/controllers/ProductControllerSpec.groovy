@@ -13,7 +13,7 @@ class ProductControllerSpec extends Specification {
     
     def "test_getProductionInformation_success"() {
         when:
-        def result = mockProductController.getProductionInformation(PRODUCT_ID).block()
+        def result = mockProductController.getProductInformation(PRODUCT_ID).block()
         
         then:
         result.current_price == PRICE
@@ -26,7 +26,7 @@ class ProductControllerSpec extends Specification {
     
     def "test_getProductionInformation_IllegalArgumentException"() {
         when:
-        mockProductController.getProductionInformation(null)
+        mockProductController.getProductInformation(null)
         
         then:
         def e = thrown(IllegalArgumentException)
@@ -35,7 +35,7 @@ class ProductControllerSpec extends Specification {
     
     def "test_updateProductionInformation_success"() {
         when:
-        def result = mockProductController.updateProductionInformation(PRODUCT_ID, PRICE).block()
+        def result = mockProductController.updateProductInformation(PRODUCT_ID, PRICE).block()
         
         then:
         result.current_price == PRICE
@@ -47,7 +47,7 @@ class ProductControllerSpec extends Specification {
     
     def "test_updateProductionInformation_IllegalArgumentExceptionr"() {
         when:
-        mockProductController.updateProductionInformation(productId, price)
+        mockProductController.updateProductInformation(productId, price)
         
         then:
         def e = thrown(IllegalArgumentException)

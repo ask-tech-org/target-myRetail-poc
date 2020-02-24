@@ -46,9 +46,11 @@ public class DefaultProductInformationService implements ProductInformationServi
             productName = jsonService.getFieldValue(responseBody, PRODUCT_NAME_FIELD_NAME);
             LOGGER.info("retrieved productName {}", productName);
         } catch (Exception e) {
-            //ignore throwing any exception assuming user will satisfy with overall partial product information.
-            //however it all depends on the business requirement
-            //if needed it should throw externalserviceexception
+            /*
+             * ignore throwing any exception assuming user will satisfy with overall partial product information.
+             * however it all depends on the business requirement
+             * if needed it should throw externalserviceexception
+             */
             String message = "error retrieving product name";
             LOGGER.error(message, e);
         }

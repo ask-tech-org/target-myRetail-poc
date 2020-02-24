@@ -10,12 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.myretail.products.utilities.UuidUtility;
-
-//according spring framework, OncePerRequestFilter aims to guarantee a single execution per request dispatch, on any servlet container
-//appending correlationId to the log for request tracing purpose.
-//if X-Correlation-Id found in request header, appending that Id to the log, Otherwise generating a new correlation-id 
-//recommonded pattern: ask clients to always send X-Correlation-Id to the header.
-//otherwise it will be hard to debug without Correlation-Id
+/*
+ * according spring framework, OncePerRequestFilter aims to guarantee a single execution per request dispatch, on any servlet container
+ * appending correlationId to the log for request tracing purpose.
+ * if X-Correlation-Id found in request header, appending that Id to the log, Otherwise generating a new correlation-id 
+ * recommonded pattern: ask clients to always send X-Correlation-Id to the header.
+ * otherwise it will be hard to debug without Correlation-Id 
+ */
 @Configuration
 public class Slf4jMDCFilter extends OncePerRequestFilter {
     

@@ -4,9 +4,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-
 import com.myretail.products.services.exception.ServiceException;
-
 import reactor.core.publisher.Mono;
 
 @Service

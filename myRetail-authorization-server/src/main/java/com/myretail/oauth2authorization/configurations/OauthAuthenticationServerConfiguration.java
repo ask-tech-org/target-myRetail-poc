@@ -11,11 +11,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @Configuration
 @EnableAuthorizationServer
 public class OauthAuthenticationServerConfiguration extends AuthorizationServerConfigurerAdapter {
-    
-    //helpful articles
-    //https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide#authenticationmanager-bean
-    //https://developer.okta.com/blog/2018/04/02/client-creds-with-spring-boot
-    
+    /*
+     * helpful articles:
+     * https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide#authenticationmanager-bean
+     * https://developer.okta.com/blog/2018/04/02/client-creds-with-spring-boot
+     */
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 

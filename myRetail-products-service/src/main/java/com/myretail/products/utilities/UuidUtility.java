@@ -2,8 +2,10 @@ package com.myretail.products.utilities;
 
 import java.util.UUID;
 
-//This utility should be used as shared library
-//Future TODO use me as shared lib across projects
+/*
+ * This utility should be used as shared library
+ * TODO use me as shared lib across projects
+ */
 public final class UuidUtility {
     
     private UuidUtility() { }

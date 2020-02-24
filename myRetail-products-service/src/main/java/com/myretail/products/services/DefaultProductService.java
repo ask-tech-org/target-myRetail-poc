@@ -9,6 +9,9 @@ import com.myretail.products.domain.model.Price;
 import com.myretail.products.domain.model.PriceInformation;
 import com.myretail.products.domain.model.ProductInformation;
 
+/*
+ * aggregator service for the product
+ */
 @Service
 public class DefaultProductService implements ProductService {
 
@@ -24,9 +27,11 @@ public class DefaultProductService implements ProductService {
     public ProductInformation getProductInformation(String productId) {
         Assert.notNull(productId, "productId can't be null");
         LOGGER.info("get product information for {}", productId);
-        //expecting no exception
-        //ignore handling exception here
-        //however might need to be revisited based on the future requirement
+        /*
+         * expecting no exception
+         * ignore handling exception here
+         * however might need to be revisited based on the future requirement
+         */
         String productName = productInformationService.getProductName(productId);
         Price price = productPriceService.getPrice(productId);
         return ProductInformation.builder()

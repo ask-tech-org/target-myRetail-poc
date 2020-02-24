@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-
 import com.myretail.products.domain.model.Price;
 import com.myretail.products.domain.model.PriceInformation;
 import com.myretail.products.domain.model.ProductInformation;

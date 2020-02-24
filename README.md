@@ -44,17 +44,22 @@ There are total two applications:
 
 ## Build and Runtime environment
 
-    1.  java 8 or later
-    2.  gradle 5.4.1 
+    1.  java 8 or later 
+    2.  gradle 5.4.1 (only build)
 
 
 ## Usages
                     
-1. Get code checked out from git using command line tools eg. cmd
+1. Get code checked out from git using command line
 2. Navigate to appropiate application (myRetail-authorization-server or myRetail-products-service)folder.
 3. Run 'gradle clean build' command in cmd
+    *   Note: four reports will be generated after the successful built:
+            *   checkstyle(java - static code analysis)
+            *   codenarc(groovy - static code analysis)    
+            *   jacoco(java - code coverage)  
+            *   test
 4. Finally run 'gradle bootRun' command in cmd and wait for the application to start.
-   * Note: Please make sure sure both application are being started successfully before go to step 5 by verifying the startup logs in cmd (StartupInfoLogger - Started Oauth2AuthorizationApplication... and StartupInfoLogger - Started ProductsServiceApplication...)
+    *   Note: Please make sure sure both application are being started successfully before go to step 5 by verifying the startup logs in cmd (StartupInfoLogger - Started Oauth2AuthorizationApplication... and StartupInfoLogger - Started ProductsServiceApplication...)
 5. Once the applications start sucessfully, please take the following steps to get api response
     1.  install [ca.der](./docs/cert/ca.der) to java cacerts keystore by the running the following commands:
         * OpenJDK: keytool -importcert -alias localhostca -keystore "%JAVA_HOME%/lib/security/cacerts" -storepass changeit -file ca.der
@@ -99,5 +104,11 @@ Gradle is required to build our application. If you are using the eclipse gradle
 * Preferences -> Gradle -> set Specific Gradle Version to match the same version as your command line gradle (gradle --version)
 * Preferences -> Gradle - set Gradle User Home 
 
+#   Things that are not being implemented due to the requirements, but need to be considered:
 
-
+I didn't implemented the following things since it wasn't part of the requirement by discussing with MichaelD Kelly and require additional informations
+    * end to end engineering
+        * swagger 
+        * containerize the application(docker)
+        * automated build and deployment
+        * automated integration testing

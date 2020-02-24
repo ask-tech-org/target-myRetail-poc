@@ -1,7 +1,6 @@
 package com.myretail.products.runners;
 
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.util.ResourceUtils;
-
 import com.myretail.products.data.model.PriceDocument;
 import com.myretail.products.repositories.PriceDocumentRepositories;
 import com.myretail.products.services.utilities.JsonService;

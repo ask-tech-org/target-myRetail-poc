@@ -43,12 +43,13 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     
-    //for unit testing only
     //adding spring-boot-starter-test as compile time dependency
     //because ActiveProfiles is being used in MongodbInitialDataloadRunner class for loading initial data to mongoDB
     implementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    
+    //for unit testing only
     testImplementation 'org.codehaus.groovy:groovy-all:2.5.7'
     testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
     testImplementation 'org.spockframework:spock-spring:1.2-groovy-2.5'
